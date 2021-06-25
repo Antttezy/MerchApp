@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MerchendiserApi.Client\MerchendiserApi.Client.csproj" />
+    <ProjectReference Include="..\MerchendiserApi.Interfaces\MerchendiserApi.Interfaces.csproj" />
+  </ItemGroup>
+
+</Project>

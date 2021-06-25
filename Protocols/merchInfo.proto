@@ -1,0 +1,37 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "MerchInfoProtocol";
+
+service MerchInfoRepository {
+	rpc All (Request) returns (MerchList);
+	rpc Get (MerchId) returns (MerchInfo);
+	rpc Remove(MerchId) returns (StatusResponse);
+	rpc Add(MerchInfo) returns (StatusResponse);
+	rpc Update(MerchInfo) returns (StatusResponse);
+}
+
+message Request {
+	
+}
+
+message MerchList {
+	repeated MerchInfo users = 1;
+}
+
+message MerchInfo {
+	int32 id = 1;
+	reserved 2;
+	string firstName = 3;
+	string secondName = 4;
+	string login = 5;
+	string password = 6;
+	int32 shiftId = 7;
+}
+
+message MerchId {
+	int32 id = 1;
+}
+
+message StatusResponse {
+	int32 status = 1;
+}

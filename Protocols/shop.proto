@@ -1,0 +1,33 @@
+﻿syntax="proto3";
+
+option csharp_namespace = "ShopProtocol";
+
+service ShopRepository {
+	rpc All (Request) returns (ShopList);
+	rpc Get (ShopId) returns (ShopInfo);
+	rpc Remove(ShopId) returns (StatusResponse);
+	rpc Add(ShopInfo) returns (StatusResponse);
+	rpc Update(ShopInfo) returns (StatusResponse);
+}
+
+message Request {
+
+}
+
+message ShopList {
+	repeated ShopInfo shops = 1;
+}
+
+message ShopInfo {
+	int32 id = 1;
+	string name = 2;
+	string address = 3;
+}
+
+message ShopId {
+	int32 id = 1;
+}
+
+message StatusResponse {
+	int32 status = 1;
+}

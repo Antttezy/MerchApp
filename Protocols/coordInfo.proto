@@ -1,0 +1,36 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "CoordInfoProtocol";
+
+service CoordInfoRepository {
+	rpc All (Request) returns (CoordList);
+	rpc Get (CoordId) returns (CoordInfo);
+	rpc Remove(CoordId) returns (StatusResponse);
+	rpc Add(CoordInfo) returns (StatusResponse);
+	rpc Update(CoordInfo) returns (StatusResponse);
+}
+
+message Request {
+	
+}
+
+message CoordList {
+	repeated CoordInfo users = 1;
+}
+
+message CoordInfo {
+	int32 id = 1;
+	reserved 2;
+	string firstName = 3;
+	string secondName = 4;
+	string login = 5;
+	string password = 6;
+}
+
+message CoordId {
+	int32 id = 1;
+}
+
+message StatusResponse {
+	int32 status = 1;
+}

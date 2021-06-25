@@ -1,0 +1,28 @@
+﻿<Application x:Class="MerchendiserClient.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:MerchendiserClient"
+             xmlns:Views ="clr-namespace:MerchendiserClient.Views"
+             xmlns:VM="clr-namespace:MerchendiserClient.ViewModels"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/common.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+
+            <DataTemplate DataType="{x:Type VM:LoginViewModel}">
+                <Views:LoginView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type VM:ShiftsViewModel}">
+                <Views:ShiftsView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type VM:AddShiftViewModel}">
+                <Views:AddShiftView />
+            </DataTemplate>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

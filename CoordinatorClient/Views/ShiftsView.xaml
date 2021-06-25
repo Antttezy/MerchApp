@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="CoordinatorClient.Views.ShiftsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CoordinatorClient.Views"
+             xmlns:VM="clr-namespace:CoordinatorClient.ViewModels"
+             xmlns:nav="clr-namespace:CoordinatorClient.State.Navigators"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <VM:WorkshiftsViewModel />
+    </UserControl.DataContext>
+    <Grid Background="{StaticResource BrushItem}">
+        <TextBlock Text="{Binding LoadingStatus.Status}" Visibility="{Binding LoadingStatus.Visibility}" VerticalAlignment="Center" TextAlignment="Center"/>
+        <ScrollViewer>
+            <ListView ItemsSource="{Binding Workshifts}" Visibility="{Binding ContentStatus.Visibility}" Width="auto">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Padding="10" Background="{StaticResource BrushBackground}">
+                            <StackPanel Orientation="Horizontal" Background="{StaticResource BrushBackground}">
+                                <TextBlock Text="{Binding RunningStatus.Status}" Visibility="{Binding RunningStatus.Visibility}" Foreground="{StaticResource BrushOk}"/>
+                                <TextBlock Text="{Binding StartTime, StringFormat=' {0:d MMM H:mm}'}" Visibility="{Binding EndedStatus.Visibility}"/>
+                                <TextBlock Text="{Binding EndTime, StringFormat=' - {0:d MMM H:mm}'}"  Visibility="{Binding EndedStatus.Visibility}"/>
+                                <TextBlock Text="{Binding Merch.SecondName, StringFormat=' Работник: {0} '}"/>
+                                <TextBlock Text="{Binding Merch.FirstName}"/>
+                                <TextBlock Text="{Binding Shop.Name, StringFormat=' Магазин: {0} по адресу '}"/>
+                                <TextBlock Text="{Binding Shop.Address}"/>
+                                <Button Content="Принудительное завершение" Command="{Binding EndCommand}" Visibility="{Binding RunningStatus.Visibility}" Margin="10, 0, 0, 0"/>
+                                <Button Content="Удалить" Command="{Binding DeleteCommand}" Visibility="{Binding EndedStatus.Visibility}" Margin="10, 0, 0, 0" Background="{StaticResource BrushDelete}"/>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

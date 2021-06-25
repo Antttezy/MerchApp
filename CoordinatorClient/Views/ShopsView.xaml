@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="CoordinatorClient.Views.ShopsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CoordinatorClient.Views"
+             xmlns:VM ="clr-namespace:CoordinatorClient.ViewModels"
+             xmlns:nav ="clr-namespace:CoordinatorClient.State.Navigators"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <VM:ShopsViewModel />
+    </UserControl.DataContext>
+    <Grid Background="{StaticResource BrushItem}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="{Binding LoadingStatus.Status}" Visibility="{Binding LoadingStatus.Visibility}" VerticalAlignment="Center" TextAlignment="Center"/>
+        <ScrollViewer>
+            <ListView ItemsSource="{Binding Shops}" Visibility="{Binding ContentStatus.Visibility}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Padding="10" Background="{StaticResource BrushBackground}">
+                            <StackPanel Orientation="Horizontal" Background="{StaticResource BrushBackground}" Width="auto">
+                                <StackPanel.Resources>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="Margin" Value="0,0,10,0"/>
+                                    </Style>
+                                    <Style TargetType="{x:Type Button}">
+                                        <Setter Property="Margin" Value="0,0,10,0"/>
+                                    </Style>
+                                </StackPanel.Resources>
+                                <TextBlock Text="{Binding Id, StringFormat='Id: {0}'}"/>
+                                <TextBlock Text="{Binding Name, StringFormat='Название: {0}'}"/>
+                                <TextBlock Text="{Binding Address, StringFormat='Адрес: {0}'}"/>
+                                <Button Content="Удалить" Command="{Binding DeleteCommand}" Background="{StaticResource BrushDelete}"/>
+                                <Button Content="Ред" Command="{Binding EditCommand}"/>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollViewer>
+        <Button Grid.Row="1" Content="Добавить" Background="{StaticResource BrushPrimary1}" Command="{Binding Navigator.UpdateCurrentVM}" CommandParameter="{x:Static nav:ViewType.AddShop}" />
+    </Grid>
+</UserControl>

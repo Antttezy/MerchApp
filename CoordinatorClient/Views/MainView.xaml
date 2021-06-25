@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="CoordinatorClient.Views.MainView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CoordinatorClient.Views"
+             xmlns:controls="clr-namespace:CoordinatorClient.Controls"
+             xmlns:VM="clr-namespace:CoordinatorClient.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <VM:MainViewModel/>
+    </UserControl.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <controls:Navbar DataContext="{Binding Navigator}" Grid.Column="0"/>
+        <ContentControl Grid.Column="1" Content="{Binding Navigator.CurrentViewModel}" />
+    </Grid>
+</UserControl>

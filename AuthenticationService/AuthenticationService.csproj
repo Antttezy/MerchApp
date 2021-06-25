@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore" Version="2.32.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Protos\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj" />
+    <ProjectReference Include="..\Services\Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="..\Protocols\auth.proto" GrpcServices="Server">
+      <Link>Protos\auth.proto</Link>
+    </Protobuf>
+    <Protobuf Include="..\Protocols\coordInfo.proto" GrpcServices="Client">
+      <Link>Protos\coordInfo.proto</Link>
+    </Protobuf>
+    <Protobuf Include="..\Protocols\merchInfo.proto" GrpcServices="Client">
+      <Link>Protos\merchInfo.proto</Link>
+    </Protobuf>
+  </ItemGroup>
+
+</Project>

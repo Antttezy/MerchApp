@@ -1,0 +1,52 @@
+﻿<Application x:Class="CoordinatorClient.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:CoordinatorClient"
+             xmlns:VM="clr-namespace:CoordinatorClient.ViewModels"
+             xmlns:Views="clr-namespace:CoordinatorClient.Views"
+             xmlns:Controls="clr-namespace:CoordinatorClient.Controls"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/Common.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type VM:AuthenticationViewModel}">
+                <Views:AuthenticationView/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type VM:MainViewModel}">
+                <Views:MainView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type VM:MerchesViewModel}">
+                <Views:MerchesView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type VM:WorkshiftsViewModel}">
+                <Views:ShiftsView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type VM:ShopsViewModel}">
+                <Views:ShopsView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type VM:AddShopViewModel}">
+                <Views:AddShopView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type VM:EditShopViewModel}">
+                <Views:EditShopView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type VM:AddMerchViewModel}">
+                <Views:AddMerchView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type VM:EditMerchViewModel}">
+                <Views:EditMerchView />
+            </DataTemplate>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
