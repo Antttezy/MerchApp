@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Interface Name="Domain.Services.Interfaces.IAuthenticator&lt;T&gt;">
+    <Position X="1.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IAuthenticator.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Domain.Services.Interfaces.IEncryptor">
+    <Position X="3" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IEncryptor.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Domain.Services.Interfaces.IMerchControlService">
+    <Position X="4.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAQAACAAAAAAAAAAAAAAAAAAAAAEgAAg=</HashCode>
+      <FileName>Interfaces\IMerchControlService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Domain.Services.Interfaces.IRepository&lt;T&gt;">
+    <Position X="1.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAABAAAAABAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Domain.Services.Interfaces.IShopControlService">
+    <Position X="3" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAEAAQAAAAAAAAAAAAAAAAAAKAAAA=</HashCode>
+      <FileName>Interfaces\IShopControlService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Domain.Services.Interfaces.IWorkshiftControlService">
+    <Position X="6.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAEAAAAAAAAgAIgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IWorkshiftControlService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
